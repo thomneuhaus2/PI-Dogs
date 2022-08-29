@@ -1,0 +1,77 @@
+.cardC {
+    position: relative;
+    top: 0px;
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 320px;
+    width: 250px;
+    margin: 5px 5px;
+    background: rgba(6, 6, 6, 0.607);
+    backdrop-filter: blur(10px);
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.infoPerro {
+    /* border: 2px solid rgba(234, 8, 8); */
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+   /*  width:180px;
+    height: 100px */;
+    /* font: italic 14px Georgia, serif; */
+    color: rgb(255, 255, 255);
+}
+
+.dogName {
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: center;
+    font: italic small-caps bold 20px Georgia, serif;
+    background-color: rgba(255, 0, 0, 0.668);
+    color: white;
+    padding: 5px 0px;
+    position:relative;
+    width:90%;
+    display: inline-block;
+}
+.dogName:hover, .dogName:active {
+    background-color: red;
+}
+.imgPerro {
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-bottom: 0px;
+    position: relative;
+    top: 10px;
+    width: 180px;
+    height: 170px;
+   /*  object-fit: cover; */
+}
+.tempsList{
+
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+ /*  width:80px */;
+  /* font: italic 14px Georgia, serif; */
+  color: rgb(255, 255, 255);
+
+}
+.tempsDiv{
+    display: flex;
+    margin-left:20px;
+    margin-right:20px;
+}
+.temperaments{
+    background-color:  rgba(255, 0, 0, 0.668);
+    width:80px;
+}

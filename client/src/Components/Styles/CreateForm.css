@@ -1,0 +1,99 @@
+.containerP {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.044);
+    backdrop-filter: blur(8px);
+}
+
+.createTitle {
+    color: rgb(197, 25, 25);
+    font: italic small-caps bold 70px Georgia, serif;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    position: absolute;
+    top: 0px;
+}
+
+.formCreate {
+    border: 2px solid rgb(0, 0, 0);
+    background: rgba(6, 6, 6, 0.607);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+}
+
+.dataField {
+     text-align: center;
+}
+
+.instruction {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+    left: 0px;
+}
+
+.submitButton {
+    position: relative;
+    background-color: rgb(25, 197, 54);
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(7, 7, 7);
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: green;
+}
+
+.homeButton {
+    position: relative;
+    background-color: rgb(197, 25, 25);
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(7, 7, 7);
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.homeButton:hover {
+    background-color: red;
+}
+.tempDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.tempDiv2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px solid rgb(0, 0, 0);
+}
+.tempName{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+
+    padding: 5px;
+    position: relative;
+    left: 0px;
+}

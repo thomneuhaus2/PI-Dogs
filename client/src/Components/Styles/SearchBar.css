@@ -1,0 +1,24 @@
+.searchB{
+    position: relative;
+    background-color:   rgb(197, 25, 25);
+    border:2px solid rgb(0, 0, 0);
+    color: rgb(7, 7, 7);
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.searchB:hover {
+    background-color:red;
+}
+.textBox{
+    border:2px solid rgb(0, 0, 0);
+    margin-right: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}

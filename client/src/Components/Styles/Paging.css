@@ -1,0 +1,24 @@
+
+.paginado {
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+    /* border: 2px solid black; */
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.buttonP {
+    position: relative;
+    background-color:  rgb(197, 25, 25);
+    border:1px solid rgb(0, 0, 0);
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0px;
+    opacity: 0.8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.buttonP:hover {background-color:red;opacity: 1;}

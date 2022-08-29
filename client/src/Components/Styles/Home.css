@@ -1,0 +1,142 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.044);
+    backdrop-filter: blur(8px);
+}
+
+.left {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 30%;
+    /* border:2px solid black; */
+    margin: 0;
+    background: #ffffffa7;
+    backdrop-filter: blur(8px);
+}
+
+.titleName {
+    color: rgb(197, 25, 25);
+    font: italic small-caps bold 70px Georgia, serif;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(0, 0, 0);
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding:10px;
+    text-align: left;
+}
+
+.sortText {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.reset {
+    position: relative;
+    background-color:   rgb(197, 25, 25);
+    border:2px solid rgb(0, 0, 0);
+    color: rgb(7, 7, 7);
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+    font: bold;
+}
+.reset:hover {
+    background-color:red;
+}
+
+.create {
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #f41e1e;
+    border:2px solid black;
+    color: #000000;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .create span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .create span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .create:hover span {
+    padding-right: 25px;
+  }
+  
+  .create:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.right {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 70%;
+    margin: 0;
+    /* border:2px solid rgb(158, 46, 46); */
+}
+
+.cardHolder {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    top: 0px;
+    right: 0px;
+    height: 95%;
+    width: 100%;
+
+    /* border:2px solid rgb(91, 46, 158); */
+}
+
+.pagingHolder {
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    height: 5%;
+    width: 100%;
+}

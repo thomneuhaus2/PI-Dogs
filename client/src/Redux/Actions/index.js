@@ -8,6 +8,7 @@ export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const GET_DOG_NAME = "GET_DOG_NAME";
 export const POST_DOG = "POST_DOG";
 export const GET_DETAIL = "GET_DETAIL";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
 
 export function getDogs() {
     return async function (dispatch) {
@@ -100,5 +101,10 @@ export function getDetail(id) {
             });
         }
         catch (error) { if (error.response) { alert(error.response.data) } }
+    }
+}
+export function cleanDetail(){
+    return {
+        type: CLEAN_DETAIL,
     }
 }

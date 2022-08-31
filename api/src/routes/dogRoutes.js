@@ -45,6 +45,7 @@ router.get('/', async (req, res, next) => {
         let name = req.query.name;
         let info = await getAll();
         if (name) {
+            name=name.toLowerCase();
             let dogsName = await info.filter(el => el.name.toLowerCase().includes(name));
             dogsName.length ?
                 res.status(200).send(dogsName) :
@@ -93,7 +94,7 @@ router.post('/', async (req, res) => {
             image,
             createdInDB
         })
-    
+            
         let temperamento = await Temperament.findAll({ where: { name: temperament } });
         newDog.addTemperament(temperamento);
         res.send('se agrego el perro')

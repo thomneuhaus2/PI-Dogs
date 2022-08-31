@@ -7,7 +7,8 @@ import {
   ORDER_BY_WEIGHT,
   GET_DOG_NAME,
   POST_DOG,
-  GET_DETAIL
+  GET_DETAIL,
+  CLEAN_DETAIL
 } from '../Actions';
 
 const initialState = {
@@ -53,15 +54,16 @@ export default function reducer(state = initialState, action) {
         dogs: creationFiltered2
       }
     case ORDER_BY_NAME:
+      if (action.payload === 'default') { return { ...state } }
       let sorted = action.payload === 'asc' ?
         state.dogs.sort(function (a, b) {
-          if (a.name > b.name) { return 1 }
-          else if (b.name > a.name) { return -1 }
+          if (a.name.toLowerCase() > b.name.toLowerCase()) { return 1 }
+          else if (b.name.toLowerCase() > a.name.toLowerCase()) { return -1 }
           return 0;
         })
         : state.dogs.sort(function (a, b) {
-          if (a.name > b.name) { return -1 }
-          else if (b.name > a.name) { return 1 }
+          if (a.name.toLowerCase() > b.name.toLowerCase()) { return -1 }
+          else if (b.name.toLowerCase() > a.name.toLowerCase()) { return 1 }
           return 0;
         })
       return {
@@ -69,18 +71,30 @@ export default function reducer(state = initialState, action) {
         dogs: sorted,
       }
     case ORDER_BY_WEIGHT:
-      console.log(state.dogs)
-      let sorted2 = action.payload === 'asc' ?
-        state.dogs.sort(function (a, b) {
-          if (parseInt(a.weight.metric) - parseInt(b.weight.metric)) { return 1 }
-          else if (parseInt(b.weight.metric) > parseInt(a.weight.metric)) { return -1 }
-          return 0;
+      let sorted2 = [];
+      if (action.payload === 'default') { return { ...state } }
+      else if (action.payload === 'asc') {
+        sorted2 = state.dogs.sort(function (a, b) {
+          let m1 = a.weight.metric.split(' ')[0];
+          let m2 = b.weight.metric.split(' ')[0];
+          if (m1 === 'NaN') { m1 = parseInt(a.weight.imperial.split(' ')[0]) / 2.2; }
+          else { m1 = parseInt(m1) }
+          if (m2 === 'NaN') { m2 = parseInt(b.weight.imperial.split(' ')[0]) / 2.2; }
+          else { m2 = parseInt(m2) }
+          return m1 - m2;
         })
-        : state.dogs.sort(function (a, b) {
-          if (parseInt(a.weight.metric) > parseInt(b.weight.metric)) { return -1 }
-          else if (parseInt(b.weight.metric) > parseInt(a.weight.metric)) { return 1 }
-          return 0;
+      }
+      else if (action.payload === 'desc') {
+        sorted2 = state.dogs.sort(function (a, b) {
+          let m1 = a.weight.metric.split(' ')[0];
+          let m2 = b.weight.metric.split(' ')[0];
+          if (m1 === 'NaN') { m1 = parseInt(a.weight.imperial.split(' ')[0]) / 2.2; }
+          else { m1 = parseInt(m1) }
+          if (m2 === 'NaN') { m2 = parseInt(b.weight.imperial.split(' ')[0]) / 2.2; }
+          else { m2 = parseInt(m2) }
+          return m2 - m1;
         })
+      }
       return {
         ...state,
         dogs: sorted2,
@@ -89,10 +103,15 @@ export default function reducer(state = initialState, action) {
       return {
         ...state
       }
-      case GET_DETAIL:
+    case GET_DETAIL:
       return {
         ...state,
         detail: action.payload
+      }
+    case CLEAN_DETAIL:
+      return{
+        ...state,
+        detail:[]
       }
     default:
       return state;

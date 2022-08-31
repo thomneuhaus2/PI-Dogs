@@ -181,13 +181,9 @@ export default function CreateForm() {
                     </div>)}
                 )}
             </div>
-        
                 <Link to='/home'><button className='homeButton'>Cancel</button></Link>
                 <button className='submitButton' type='submit'> Create</button>
-           
             </form>
-            
         </div>
-
     )
 }

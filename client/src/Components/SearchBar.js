@@ -20,11 +20,10 @@ export default function SearchBar({setCurrentPage}) {
         setName('')
        
     };
-    console.log(name)
     return(
         <div>
             <input className='textBox' type='text' placeholder='Dog name...' onChange={e => { handleInput(e) }} value={name}/>
-            <button className='searchB' type='submit' onClick={e => { handleClick(e) }} disabled={!name || /\s/g.test(name) ? true : false}>Search</button>
+            <button className='searchB' type='submit' onClick={e => { handleClick(e) }} >Search</button>
         </div>
     )
 }

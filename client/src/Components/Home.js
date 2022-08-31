@@ -9,7 +9,7 @@ import {
     orderByName,
     orderByWeight
 } from '../Redux/Actions';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Card from './Card';
 import Paging from './Paging';
 import SearchBar from './SearchBar';
@@ -22,10 +22,9 @@ export default function Home() {
 
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs);
-    const history = useHistory();
-    const [orden, setOrden] = useState('')
+    const [, setOrden] = useState('')
     const [currentPage, setCurrentPage] = useState(1);
-    const [dogsPerPage, setDogsPerPage] = useState(ITEMS_PAGINA);
+    const [dogsPerPage,] = useState(ITEMS_PAGINA);
     const indexOfLast = currentPage * dogsPerPage;
     const indexOfFirst = indexOfLast - dogsPerPage;
     const dogsToShow = allDogs.slice(indexOfFirst, indexOfLast);
@@ -41,7 +40,6 @@ export default function Home() {
     function handleClick(e) {
         e.preventDefault();
         dispatch(getDogs());
-   /*     history.push('/home') */
     };
     function handleFilterByCreation(e) {
         dispatch(filterByCreation(e.target.value))
@@ -52,16 +50,15 @@ export default function Home() {
         setCurrentPage(1)
     };
     function handleOrderByName(e) {
-        dispatch(orderByName(e.target.value))
-        setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
+            dispatch(orderByName(e.target.value))
+            setCurrentPage(1)
+            setOrden(`Ordenado ${e.target.value}`)
     };
     function handleOrderByWeight(e) {
         dispatch(orderByWeight(e.target.value))
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`)
     };
-console.log(orden)
     return (
         <div className='container'>
             <span className='left'>
@@ -77,8 +74,8 @@ console.log(orden)
                     <div className='sortText'>Order by weight:</div>
                     <select className='filter' onChange={e => { handleOrderByWeight(e) }}>
                         <option value='default'>-</option>
-                        <option value='asc'>Lightest</option>
-                        <option value='desc'>Heaviest</option>
+                        <option value='asc'>Lightest (min weight)</option>
+                        <option value='desc'>Heaviest (min weight)</option>
                     </select>
                     <div className='sortText'>Filer by creation:</div>
                     <select className='filter' onChange={e => { handleFilterByCreation(e) }}>

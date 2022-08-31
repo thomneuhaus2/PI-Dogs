@@ -1,26 +1,33 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getDetail } from '../Redux/Actions';
+import { Link, useHistory } from 'react-router-dom';
+import { getDetail, cleanDetail } from '../Redux/Actions';
 import "./Styles/Detail.css"
 
 export default function Detail(props) {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getDetail(props.match.params.id))
-  }, [dispatch])
+  }, [dispatch, props.match.params.id])
+
   const myDog = useSelector((state) => state.detail)
 
+  function handleClick(e) {
+    e.preventDefault();
+    dispatch(cleanDetail());
+    history.push('/home')
+  };
   return (
     <div className='containerD'>
       {myDog.length > 0 ?
         <div className='allDivs'>
           <h1 className='detailTitle'>{myDog[0].name}</h1>
           <div className='L'>
-            <img className='imagenDetail' src={myDog[0].image.url} alt="img not found"/>
+            <img className='imagenDetail' src={myDog[0].image.url} alt="img not found" />
           </div>
           <div className='R'>
             <h2 className='characteristic'>Weight: {myDog[0].weight.metric}, {myDog[0].weight.imperial}</h2>
@@ -32,9 +39,8 @@ export default function Detail(props) {
         :
         <div>Loading...</div>}
       <Link to='/home'>
-        <button className='homeB'>Home</button>
+        <button className='homeB' onClick={e => { handleClick(e) }}>Home</button>
       </Link>
     </div>
   )
-
 }

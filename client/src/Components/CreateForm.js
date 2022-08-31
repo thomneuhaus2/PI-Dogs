@@ -18,7 +18,7 @@ function validate(input) {
 function validateName(name) {
     if (name.length === 0) return 'Name required';
     else if (!/^[a-z\s]+$/i.test(name)) return 'Name can only contain letters' //checkea no tener nada raro
-    else if (!/^[a-z]+$/i.test(name)) return 'Name must have at least one letter' //checkea no ser solo espacios
+    else if (/^[\s]+$/i.test(name)) return 'Name must have at least one letter' //checkea no ser solo espacios
     else return 'Ok'
 }
 function validateWHL(min, max) {
@@ -61,20 +61,20 @@ export default function CreateForm() {
             ...input,
             [e.target.name]: e.target.value
         })
-        console.log(input)
+        
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value
         }))
     }
     function handleSelect(e) {
-        setInput({
+          setInput({
             ...input,
             temperament: [...input.temperament, e.target.value]
         })
         setErrors(validate({
             ...input,
-            [e.target.name]: e.target.value
+            temperament: [...input.temperament, e.target.value]
         }))
     }
     function handleSubmit(e) {
@@ -97,7 +97,12 @@ export default function CreateForm() {
                 },
 
                 lifeSpan: input.minLifeSpan + ' - ' + input.maxLifeSpan + ' years',
-                image: "",
+                image: {
+                    id: "",
+                    width: 626,
+                    height: 626,
+                    url: "https://img.freepik.com/vector-premium/cute-little-dog-cartoon-aislado-blanco_143596-3.jpg"
+                    },
                 createdInDB: true,
                 temperament: input.temperament,
             }
